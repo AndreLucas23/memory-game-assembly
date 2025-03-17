@@ -364,7 +364,7 @@ Como visualizado, não houveram erros durante a execução!
 
 <h4>Teste 2 (OR):</h4>
 
-Código hexadecimal utilizado: 015c5805
+Código hexadecimal utilizado: 016c6805
 
 Comportamento esperado: Armazenar, em $13, o resultado de um OR entre os registradores $11 e $12
 
@@ -382,15 +382,17 @@ Comportamento esperado: Caso $14 for diferente de $15, pular para 000a
 
 Resultado:
 
-![teste bne parte 1](./Imgs/teste-bne-1.png)
+![teste bne parte 1](./Imgs/teste-bne1.png)
 
-![teste bne parte 2](./Imgs/teste-bne-2.png)
+![teste bne parte 2](./Imgs/teste-bne2.png)
+
+OBS.: (0008 << 2 + 0008) >> 2 (próximo endereço) = (((0000 0000 0000 1000) << 2) + 0008) >> 2(0020 + 0008) >> 2 = 0028 >> 2 = 0000 0000 0010 1000 >> 2 = 0000 0000 0000 1010 = 000a
 
 Como visualizado, não houveram erros durante a execução!
 
 <h4>Teste 4 (SLTI):</h4>
 
-Código hexadecimal utilizado: 2a110008
+Código hexadecimal utilizado: 2a110020
 
 Comportamento esperado: Caso $16 for menor que 0020, transferir 1 para $17
 
@@ -402,7 +404,7 @@ Como visualizado, não houveram erros durante a execução!
 
 <h4>Teste 5 (SLT):</h4>
 
-Código hexadecimal utilizado: 02329806
+Código hexadecimal utilizado: 0253a006
 
 Comportamento esperado: Caso $18 for menor que $19, transferir 1 para $20
 
@@ -414,50 +416,60 @@ Como visualizado, não houveram erros durante a execução!
 
 <h4>Teste 6 (JR):</h4>
 
-Código hexadecimal utilizado: 2e800000
+Código hexadecimal utilizado: 2ea00000
 
-Comportamento esperado: O endereço de memória recebe o valor armazenado por $21
+Comportamento esperado: PC receber o valor armazenado por $21
 
 Resultado:
 
-![teste jr parte 1](./Imgs/teste-jr-1.png)
+![teste jr parte 1](./Imgs/teste-jr1.png)
 
-![teste jr parte 2](./Imgs/)
+![teste jr parte 2](./Imgs/teste-jr2.png)
+
+OBS.: 
 
 Como visualizado, não houveram erros durante a execução!
 
 <h4>Teste 7 (JAL):</h4>
 
-Código hexadecimal utilizado: 30000004
+Código hexadecimal utilizado: 30000080
 
-Comportamento esperado: 
+Comportamento esperado: Guardar o próximo endereço de instrução em $31 e pular para o valor imediato
 
 Resultado:
 
-![teste jal](./Imgs/)
+![teste jal parte 1](./Imgs/teste-jal1.png)
+
+![teste jal parte 2](./Imgs/teste-jal2.png)
+
+OBS.: A instrução foi executada no endreço de memória 0004
 
 Como visualizado, não houveram erros durante a execução!
 
 <h4>Teste 8 (SLL):</h4>
 
-Código hexadecimal utilizado: 02b6b887
+Código hexadecimal utilizado: 02d70087
 
-Comportamento esperado: 
+Comportamento esperado: Transferir, para $23, o valor de $22 deslocado duas vezes para a esquerda
 
 Resultado:
 
-![teste sll](./Imgs/)
+![teste sll](./Imgs/teste-sll.png)
+
+OBS.: 00100000 << 2 = 0000 0000 0001 0000 0000 0000 0000 0000 << 2 = 0000 0000 0100 0000 0000 0000 0000 0000
 
 Como visualizado, não houveram erros durante a execução!
 
 <h4>Teste 1 (SLR):</h4>
 
-Código hexadecimal utilizado: 0319d048
+Código hexadecimal utilizado: 03190048
 
-Comportamento esperado: 
+Comportamento esperado: Transferir, para $25, o valor de $24 deslocado uma vez para a direita
 
 Resultado:
 
-![teste slr](./Imgs/)
+![teste slr](./Imgs/teste-slr.png)
+
+OBS.: 00001000 >> 1 = 0000 0000 0000 0000 0001 0000 0000 0000 >> 1 = 0000 0000 0000 0000 0000 1000 0000 0000
 
 Como visualizado, não houveram erros durante a execução!
