@@ -1,7 +1,7 @@
 # Feito por: André Lucas e Jonathas Levi
 
 .data
-SIZE         : .word 4 # A constante "SIZE" representa o tamanho de um dos lados do tabuleiro quadrado; Ex.: SIZE 5 represente um tabuleiro 5x5
+SIZE         : .word 4 # A constante "SIZE" representa o tamanho de um dos lados do tabuleiro quadrado; Ex.: SIZE = 2 represente um tabuleiro 2x2
 pairs        : .word 8 # A variável "pairs" guarda a quantidade de pares restantes a serem desvendados no tabuleiro, sendo decrescida a cada par encontrado
 # Ela também controla a quantidade de loopings que acontecerão durante a execução, já que assim que chegar a 0, o jogo termina
 board        : .word 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8 # O vetor "board" é uma representação linear do tabuleiro do jogo, usado para acessar os elementos ao longo do programa
@@ -225,7 +225,7 @@ invalid_c2: # Label que indica as instruções a serem tomadas assim que um valor 
 	j looping_c2 # Retorna para "looping_c2" para requisitar a entrada e realizar as verificações novamente
 guessed_2: # Label que indica as instruções a serem tomadas quando o segundo número escolhido já foi escolhido ou é o mesmo do primeiro
 	li $v0, 4
-	la $a0, guessed_msg 3 # Imprime a mensagem que informa que o número escolhido não está oculto
+	la $a0, guessed_msg # Imprime a mensagem que informa que o número escolhido não está oculto
 	syscall
 	la $a0, cl
 	syscall
